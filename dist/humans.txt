@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Bill Heaton -- Software Engineer -- pixelhandler
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, JavaScript
+    Backbone, Zepto, Lo-Dash (Underscore), Modernizr

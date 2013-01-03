@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js" manifest="manifest.appcache"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <title>Clean-or-Dirty.com</title>
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta http-equiv="Expires" content="Mon, 31 Dec 2012 08:00:00 GMT">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width">
+        <meta http-equiv="cleartype" content="on">
+        <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#2a3034">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" href="./favicon.ico">
+        <link rel="stylesheet" href="styles/4832c2df.index.min.css">
+        <script src="scripts/libs/c3076c31.modernizr.min.js"></script>
+        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1><a href="/">Clean-Or-Dirty</a></h1>
+                <a class="gear" href="#settings">&#009881</a>
+            </header>
+            <section id="content"></section>
+            <section id="page"></section>
+            <footer>
+                <a id="checkStatus" href="#">Check Status</a> | <a href="#about">About</a> | <a href="#privacy">Privacy</a>
+            </footer>
+        </div>
+
+        <script type="text/template" id="status">
+            <div class="status panel circle">
+                <div class="clean">
+                    <h2>{{clean}}</h2>
+                </div>
+                <div class="dirty">
+                    <h2>{{dirty}}</h2>
+                </div>
+            </div>
+        </script>
+
+        <section role="page" id="about">
+            <article class="page about">
+                <h2>About</h2>
+                <h3>Clean or Dirty?</h3>
+                <p>This application does one simple task - set/report the state of the content of your dishwasher(s).</p>
+                <p><em>(Alpha) Version: 0.2</em></p>
+                <h3>How it Works</h3>
+                <ol>
+                    <li>Allow the device to use your location</li>
+                    <li>Set the status to <em>Clean</em> Or <em>Dirty</em></li>
+                    <li>Anyone in your kitchen can check and set the status of your dishwasher contents</li>
+                </ol>
+                <h3>We Recommend</h3>
+                <ul>
+                    <li>Share this app (Web site) with anyone using your dishwasher</li>
+                    <li>Never again guess if your dishes are clean or dirty :)</li>
+                </ul>
+            </article>
+        </section>
+
+        <section role="page" id="privacy">
+            <article class="page privacy">
+                <h2>Privacy</h2>
+                <h3>Data</h3>
+                <p>This web application collects location information from your mobile device (browser). Geolocation data is used to fetch address information from Google Maps Web services; similar to how you can use Google Maps for finding directions. The geolocation and address information data is only used within the application running on your mobile device, and not stored anywhere. This data is not shared or sent to any web servers. The location data stays only on your mobile device.</p>
+                <p>Web analytics tools, e.g. Google Analytics, may collect application statistics to track the usage of this application. Statistics/application usage data is only privy to the web application owner and Google</p>
+                <h3>Communication</h3>
+                <p>This application encrypts your location data; and uses an encrypted 'id' (hash) to communicated with a remove Web server for storing and reporting the state of your appliance(s), e.g. "Clean" or "Dirty".</p>
+                <h3>Sharing</h3>
+                <p>You may share the this Web application (site) with anyone you would like to be able to check and/or set the status of your appliance. The application does NOT share your encrypted 'id' with any third party.</p>
+                <p>We may change this privacy notice as the application's features are enhanced, please review when you notice a version change.</p>
+            </article>
+        </section>
+
+        <script type="text/template" id="settings">
+            <article class="page settings">
+                <h2>Settings</h2>
+                <h3>Diswashers</h3>
+                {{appliances}}
+            </article>
+        </script>
+
+        <script src="scripts/0b1a5728.amd-app.js"></script>
+
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-2687872-17']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
+
+    </body>
+</html>
