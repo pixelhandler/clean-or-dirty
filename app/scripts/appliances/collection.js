@@ -38,7 +38,7 @@ define(['facade', 'env', 'appliances/model'], function (F, env, ApplianceModel) 
                 url: self.url + '?{"ref": "' + _ref + '"}',
                 success: function (collection, response/*, options*/) {
                     var model;
-
+                    console.log('resp: ' + response);
                     console.log('fetchByRefSuccess...');
                     console.dir(response);
                     if (_.isArray(response)) {
