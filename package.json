@@ -2,18 +2,14 @@
   "author": "Bill Heaton <pixelhandler@gmail.com>",
   "name": "Clean or Dirty",
   "version": "0.0.2",
-  "description" : "Keeps track of dishwasher state based on location of applicance.",
+  "description": "Keeps track of dishwasher state based on location of applicance.",
   "dependencies": {
-  	"deployd": "0.6.9"
-  },
+    "deployd": ">= 0.6.9"
+    },
   "devDependencies": {
-    "grunt": "~0.4.0",
-    "yeoman": "0.9.6",
-    "requirejs": "2.1.2",
-    "clean-css": "~0.8.2"
+    "yeoman": ">= 0.9.6"
   },
   "engines": {
-  	"node": ">= 0.8.16",
-    "grunt-contrib-mincss": "0.3.2"
+    "node": ">= 0.8.16"
   }
 }

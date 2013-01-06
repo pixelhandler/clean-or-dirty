@@ -1,4 +1,4 @@
-define(['facade', 'env'], function (F, env) {
+define(['facade', 'env', 'location/map'], function (F, env, Map) {
     'use strict';
 
     var LocationModel,
@@ -18,11 +18,13 @@ define(['facade', 'env'], function (F, env) {
         },
 
         initialize: function () {
+            var self = this;
             _.bindAll(this, 'geoLocationSuccessHandler', 'geoLocationErrorHandler');
             //Backbone.on('applianceStateChange', this.geoLocation, this);
             this.on('geoLocationSuccess', this.getAddressWithGeoLocation, this);
-            this.on('change:name', this.setRef, this);
             this.geoLocation();
+            this.elem = document.getElementById("map_canvas");
+            this.on('change:name', this.setRef, this);
         },
 
         geoLocation: function () {
@@ -80,27 +82,17 @@ define(['facade', 'env'], function (F, env) {
         },
 
         getAddressWithGeoLocation: function (model) {
-            var lat = this.get('latitude'),
-                lng = this.get('longitude'),
-                self = model || this,
-                geocoder = new google.maps.Geocoder(),
-                latLng = new google.maps.LatLng(lat, lng),
-                name;
+            var self = model || this,
+                map = new Map(self.get('latitude'), self.get('longitude'), this.elem);
 
-            geocoder.geocode({ 'latLng': latLng }, function (results, status) {
-                if (status === google.maps.GeocoderStatus.OK) {
-                    if (results[0]) {
-                        name = results[0].address_components[0].short_name;
-                        console.log('name: ' + name);
-                        self.set({'name': name, 'addr': results[0].formatted_address}, {silent: false});
-                        //self.trigger('getAddressWithGeoLocationSuccess', self);
-                    }
-                } else {
-                    console.log("Geocode was not successful for the following reason: " + status);
-                    // TODO subscribe and ask for pin
-                    //model.trigger('requestName');
-                }
+            map.on('reverseGeocodingSuccess', function (_map) {
+                _map = _map || map; 
+                self.set({
+                    'name': _map.getShortName(), 
+                    'addr': _map.getFormattedAddress()
+                }, {silent: false});
             });
+            map.codeLatLng();
         },
 
         setRef: function (model) {
