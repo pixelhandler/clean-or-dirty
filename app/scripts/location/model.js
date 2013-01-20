@@ -32,7 +32,7 @@ define(['facade', 'env', 'location/map'], function (F, env, Map) {
 
             if (Modernizr.geolocation && attempts < LocationModel.MAX_ATTEMPTS) {
                 console.log('geoLocation attempts: ' + attempts);
-                navigator.geolocation.getCurrentPosition(
+                window.navigator.geolocation.getCurrentPosition(
                     function () {
                         self.geoLocationSuccessHandler.apply(self, arguments);
                     },
@@ -88,11 +88,31 @@ define(['facade', 'env', 'location/map'], function (F, env, Map) {
             map.on('reverseGeocodingSuccess', function (_map) {
                 _map = _map || map; 
                 self.set({
-                    'name': _map.getShortName(), 
+                    'name': self.requestName(_map.getShortName()),
                     'addr': _map.getFormattedAddress()
                 }, {silent: false});
             });
             map.codeLatLng();
+        },
+
+        requestName: function (addr) {
+            var name, msg = [], key = 'locName',
+                hasStorage = Modernizr.localstorage;
+
+            if (hasStorage && window.localStorage.key(key) == key) {
+                name = window.localStorage.getItem(key);
+            }
+            if (!name || (name && name === '')) {
+                msg.push('Please name your appliance or enter a shared name, perhaps:');
+                msg.push(addr);
+                name = window.prompt(msg.join(' ', addr));
+                name = (name === '') ? addr : name;
+                if (hasStorage) {
+                    window.localStorage.setItem(key, name);
+                }
+            }
+
+            return name;
         },
 
         setRef: function (model) {

@@ -2,7 +2,7 @@
 require.config({
 
     // Initialize the application with the bootstrap application file.
-    deps: ['lodash', 'zepto', 'helper', 'facade', 'bootstrap'],
+    deps: ['lodash', 'zepto', 'helper', 'facade', 'env', 'bootstrap'],
 
     paths: {
         // Environment variables

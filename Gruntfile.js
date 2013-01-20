@@ -102,6 +102,9 @@ module.exports = function( grunt ) {
       },
       globals: {
         window: true,
+        console: true,
+        navigator: true,
+        document: true,
         Zepto: true,
         Backbone: true,
         _: true,
@@ -197,7 +200,7 @@ module.exports = function( grunt ) {
   // css minification
   grunt.loadNpmTasks('/usr/lib/node_modules/grunt-contrib-mincss');
 
-  // overload build task
-  grunt.registerTask('build','intro clean coffee compass mkdirs usemin-handler rjs concat css mincss min img rev usemin manifest copy time');
+  // overload build task, TODO add mincss task
+  grunt.registerTask('build','intro clean coffee compass mkdirs usemin-handler rjs concat css min img rev usemin manifest copy time');
 
 };
